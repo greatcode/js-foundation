@@ -10,19 +10,13 @@ declare var Handlebars: any
 // message using the shared template which was exposed by the server.
 (function () {
   const button = document.getElementById("say");
-  if (!button) {
+  const echos = document.getElementById("echos");
+  if (!button || !echos) {
     return
   }
 
   button.addEventListener("click", function (e: Event) {
     const message = prompt("Say Something:", "This will echo");
-    const echo = document.createElement("div");
-
-    echo.innerHTML = Handlebars.templates.echo({ message });
-
-    if (!document.body) {
-      return
-    }
-    document.body.appendChild(echo);
+    echos.innerHTML = Handlebars.templates.echo({ message });
   }, false);
 }());

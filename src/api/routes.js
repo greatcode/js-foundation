@@ -8,10 +8,17 @@ function home(req, res) {
   });
 }
 
+function blank(req, res) {
+  res.render("blank", {
+    title: "Blank Page"
+  })
+}
+
 function load(options) {
   const { app, hbs } = options
 
   app.get("/", middleware.exposeTemplates({app, hbs}), home);
+  app.get("/blank", middleware.exposeTemplates({app, hbs}), blank);
 }
 
 exports.load = load
