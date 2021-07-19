@@ -1,0 +1,11 @@
+.cache/**
+.tmp/**
+*.code-workspace
+build/**
+dist/**
+node_modules/**
+
+# Vendor source files
+vendor/**
+!vendor/*.tgz
+!vendor/*.tar.gz
