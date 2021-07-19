@@ -5,7 +5,7 @@
 
 triggerLiveReload=false
 
-for file in $(find src -name "*.js" | cut -f 2- -d '/')
+for file in $(find src -name "*.js" -type f | cut -f 2- -d '/')
 do
   (cd build && mkdir -p $(dirname $file))
   contents=$(./node_modules/.bin/flow-remove-types ./src/$file)
