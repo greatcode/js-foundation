@@ -13,13 +13,14 @@ const sockets = require(path.join(__dirname, './sockets'))
 const app = express();
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
-
+const port = parseInt(process.env.PORT) || 3000;
 if (process.env.NODE_ENV !== 'production') {
   const livereload = require('livereload')
   const connectLiveReload = require('connect-livereload')
 
   const liveReloadServer = livereload.createServer({
-    exts: ['handlebars', 'css']
+    exts: ['handlebars', 'css'],
+    port: 32729 + port // This allows it to offset, so multiple can run at once
   })
   liveReloadServer.watch(path.join(__dirname, '../ui/views'))
   liveReloadServer.watch(path.join(__dirname, '../ui/public'))
@@ -45,6 +46,6 @@ app.use(express.static(path.join(__dirname, "../ui/public/")));
 routes.load({app, hbs})
 io.on('connection', sockets.onConnection)
 
-http.listen(3000, function () {
-  console.log("express-handlebars example server listening on: 3000");
+http.listen(port, function () {
+  console.log(`express-handlebars example server listening on: ${port}`);
 });
