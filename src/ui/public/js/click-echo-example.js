@@ -1,9 +1,5 @@
-// @flow
 /* global Handlebars, prompt */
 "use strict";
-
-// This is just for @flow
-declare var Handlebars: any
 
 // The client-side "app" which leverages the shared Handlebars "echo" template.
 // This will prompt the user for a message, then echo it out by rendering the
@@ -15,7 +11,7 @@ declare var Handlebars: any
     return
   }
 
-  button.addEventListener("click", function (e: Event) {
+  button.addEventListener("click", function (e) {
     const message = prompt("Say Something:", "This will echo");
     echos.innerHTML = Handlebars.templates.echo({ message });
   }, false);

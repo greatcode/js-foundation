@@ -1,13 +1,11 @@
 {
-  "name": "foundation",
+  "name": "js-foundation",
   "version": "0.0.0",
   "description": "",
   "private": true,
-  "main": "build/api/server.js",
+  "main": "src/api/server.js",
   "scripts": {
-    "build": "./build.sh",
-    "flow": "./node_modules/.bin/nodemon -e js,css,html,json,handlebars --watch src --exec ./flow-clean-exit.sh",
-    "start": "NODE_ENV=dev ./node_modules/.bin/nodemon --watch build",
+    "start": "NODE_ENV=dev ./node_modules/.bin/nodemon --watch src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -17,8 +15,6 @@
   },
   "devDependencies": {
     "connect-livereload": "^0.6.1",
-    "flow-bin": "^0.153.0",
-    "flow-remove-types": "^2.153.0",
     "livereload": "^0.9.3",
     "nodemon": "^2.0.7"
   }
